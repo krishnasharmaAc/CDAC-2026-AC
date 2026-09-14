@@ -11,6 +11,8 @@ public class Main {
 		AddEmployee addEmployee = new AddEmployee(); 
 		// Create DisplayEmployee object 
 		DisplayEmployee displayEmployee = new DisplayEmployee( addEmployee.getEmployees(), addEmployee.getEmployeeCount());
+		// Create SortEmployee Object
+		SortEmployees sortEmployee;
 		
 		do {
 			
@@ -116,21 +118,40 @@ public class Main {
 		                break;
 		            	 
 		            case 3:
-						
+						sortEmployess = new SortEmployees(addEmployee.getEmployees(),addEmployee.getEmployeeCount());
 						 do {
 								System.out.println("\n********Sort Employee********");
-								System.out.println("1. All Managers");
-								System.out.println("2. All Engineers");
-								System.out.println("3. All Sales Person");
-								System.out.println("4. All Employees Alphabetic order ascending");
-								System.out.println("5. All Employees Alphabetic order descending");
-								System.out.println("6. Exit to Main Menu ");
+								System.out.println("1. All Employees Alphabetic order ascending");
+								System.out.println("2. All Employees Alphabetic order descending");
+								System.out.println("3. Designation");
+								System.out.println("4. Exit to Main Menu ");
 								
 								 System.out.print("Enter your Sort choice: ");
 								 sortChoice = ConsoleInput.getInt();
 								 
-							}while(sortChoice != 6);
+								 switch(sortChoice) {
+								 case 1:
+									 sortEmployee.sortAscending();
+									 break;
+									 
+								 case 2:
+									 sortEmployee.sortDescending();
+									 break;
+									 
+								 case 3:
+									 //sortEmployees.sortDesignation();
+									 break;
+									 
+								 case 4:
+									 System.out.println("Returning to Main Menu...");
+									 break;
 								
+								default:
+									System.out.println("Invalid choice.");
+								 }
+								 
+							}while(sortChoice != 4 );
+						 
 							break;
 		            
 
